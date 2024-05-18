@@ -29,6 +29,6 @@ app.MapPatch("lends/{id}", async (Guid id, ILendService service, CancellationTok
     await service.UpdateAsync(id, cancellationToken));
 
 app.MapGet("lends", async (Status status, ILendService service, CancellationToken cancellationToken) =>
-    await service.GetLendsByStatus(status, cancellationToken))
+    await service.GetLendsByStatus(status, cancellationToken));
 
 app.Run();

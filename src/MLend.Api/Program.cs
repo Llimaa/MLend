@@ -1,4 +1,5 @@
 using Microsoft.OpenApi.Models;
+using MLend.Api;
 using MLend.Application;
 using MLend.Infrastructure;
 
@@ -23,7 +24,7 @@ app.UseSwaggerUI(s =>
 });
 
 app.MapPost("lends", async (LendRequest request, ILendService service, CancellationToken cancellationToken) =>
-    await service.InsertAsync(request, cancellationToken));
+    await service.InsertAsync(request, cancellationToken)).AddEndpointFilter<ValidationFilter>();
 
 app.MapPatch("lends/{id}", async (Guid id, ILendService service, CancellationToken cancellationToken) => 
     await service.UpdateAsync(id, cancellationToken));

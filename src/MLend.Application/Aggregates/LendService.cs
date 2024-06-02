@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace MLend.Application;
 
 public class LendService(ILendRepository repository) : ILendService
